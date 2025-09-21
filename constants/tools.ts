@@ -1,12 +1,30 @@
 import React from 'react';
 import type { Category } from '../types';
-import { PhotoIcon, VideoIcon, AudioIcon, TextIcon, StoryIcon, AppIcon, AnalysisIcon, PresentationIcon, KeyIcon, GeneralIcon } from '../components/icons';
+import { PhotoIcon, VideoIcon, AudioIcon, TextIcon, StoryIcon, AppIcon, AnalysisIcon, PresentationIcon, KeyIcon, GeneralIcon, ChatIcon, CodeIcon, AgentIcon } from '../components/icons';
 
 export const CATEGORIES: Category[] = [
   {
+    id: 'conversation',
+    name: 'المحادثة',
+    icon: React.createElement(ChatIcon),
+    tools: [
+      { name: 'ChatGPT (OpenAI)', description: 'من أشهر أدوات الدردشة، تستخدم نماذج GPT للردود والمساعدة في الكتابة والتعلّم والبحث وغيرها.', link: 'https://chatgpt.com/' },
+      { name: 'Google Gemini', description: 'مساعد AI من Google، يدعم الإدخال المعتمد على النصوص والصور، والتكامل مع خدمات Google المختلفة.', link: 'https://gemini.google.com/' },
+      { name: 'Claude (by Anthropic)', description: 'أداة تساعد في إنتاج المحتوى، التحليل، البرمجة، مع خيارات تفكيرٍ عميق وخيارات متقدمة.', link: 'https://claude.com/product/overview' },
+      { name: 'Microsoft Copilot', description: 'تعمل كمساعد ذكي مدمج خصوصاً في منتجات Microsoft 365، تساعد في زيادة الإنتاجية.', link: 'https://copilot.microsoft.com/' },
+      { name: 'Perplexity AI', description: 'أداة تتيح البحث باستخدام الذكاء الاصطناعي، تجمع المعلومات من الإنترنت وتعرض المصادر مع إجابات موثوقة.', link: 'https://perplexity.ai/' },
+      { name: 'DeepSeek', description: 'أداة مفتوحة جزئياً، تركز على الوصول إلى نموذج ذكاء اصطناعي قوي.', link: 'https://chat.deepseek.com/' },
+      { name: 'Character.AI', description: 'تمكّنك من التفاعل مع شخصيات مخصصة للدردشة الإبداعية أو التعليمية.', link: 'https://character.ai/' },
+      { name: 'Brave Leo', description: 'مساعد ذكي مدمج في متصفح Brave، يُمكّنك من تلخيص صفحات الويب، تحليل النصوص، الترجمة، وغيرها.', link: 'https://brave.com/leo/' },
+      { name: 'LeoLM', description: 'نموذج لغة ألماني مفتوح المصدر مبني على LLaMA-2.', link: 'https://huggingface.co/LeoLM/leo-hessianai-13b-chat' },
+      { name: 'Yupp.ai', description: 'منصة دردشة يتم فيها عرض إجابتين من نماذج مختلفة ويُطلب من المستخدم اختيار الأفضل.', link: 'https://yupp.ai/' },
+      { name: 'Magai', description: 'أداة تجمع عدة نماذج ذكاء اصطناعي ضمن دردشة واحدة.', link: 'https://magai.co/' },
+      { name: 'TeamAI', description: 'منصة تتيح الوصول لعدة نماذج مقابل اشتراك واحد.', link: 'https://teamai.com/' },
+    ]
+  },
+  {
     id: 'images',
     name: 'الصور',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(PhotoIcon),
     tools: [
       { name: 'Ideogram', description: 'إنشاء صور احترافية قوية', link: 'https://ideogram.ai/' },
@@ -17,7 +35,6 @@ export const CATEGORIES: Category[] = [
   {
     id: 'video',
     name: 'الفيديو',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(VideoIcon),
     tools: [
       { name: 'Magic Light', description: 'تحويل نص إلى فيديو يصل إلى 50 دقيقة', link: 'https://magiclight.ai/' },
@@ -36,7 +53,6 @@ export const CATEGORIES: Category[] = [
   {
     id: 'audio',
     name: 'الصوت',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(AudioIcon),
     tools: [
       { name: 'Google AI Studio', description: 'تحويل الكلام إلى صوت', link: 'https://aistudio.google.com/prompts/new_chat' },
@@ -46,7 +62,6 @@ export const CATEGORIES: Category[] = [
   {
     id: 'text',
     name: 'النصوص',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(TextIcon),
     tools: [
       { name: 'OCR.space', description: 'موقع لتحويل البي دي اف إلى وورد عربي', link: 'https://ocr.space/' },
@@ -58,7 +73,6 @@ export const CATEGORIES: Category[] = [
   {
     id: 'stories',
     name: 'قصص',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(StoryIcon),
     tools: [
       { name: 'Easemate', description: 'مولد قصص ولا يحتاج تسجيل دخول', link: 'https://www.easemate.ai/ai-story-generator' },
@@ -69,26 +83,23 @@ export const CATEGORIES: Category[] = [
   {
     id: 'applications',
     name: 'التطبيقات',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(AppIcon),
     tools: [
-      { name: 'AppsGeyser', description: 'تحويل أي صفحة نت إلى تطبيق في الهاتف', link: 'https://appsgeyser.com/?pn=com.wAlnahdah_19100590' },
+      { name: 'AppsGeyser', description: 'تحويل أي صفحة نت إلى تطبيق في الهاتف', link: 'https://appsgeyser.com/' },
     ],
   },
   {
     id: 'analysis',
     name: 'تحليل النتائج',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(AnalysisIcon),
     tools: [
-      { name: 'Manus.im', description: 'رابط تحليل النتائج ومشاركة الملفات', link: 'https://manus.im/share/file/a643258b-af10-4ef7-9a53-13e433317d26' },
+      { name: 'Manus.im', description: 'رابط تحليل النتائج ومشاركة الملفات', link: 'https://manus.im/' },
       { name: 'Ithy', description: 'تحليل البيانات المتقدم', link: 'https://ithy.com/' },
     ],
   },
   {
     id: 'presentations',
     name: 'العروض التقديمية',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(PresentationIcon),
     tools: [
       { name: 'Gamma.app', description: 'رابط لإنشاء عروض تقديمية احترافية', link: 'https://gamma.app/' },
@@ -97,7 +108,6 @@ export const CATEGORIES: Category[] = [
   {
     id: 'ai-key',
     name: 'مفتاح الذكاء الاصطناعي',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(KeyIcon),
     tools: [
       { name: 'OpenAI Login', description: 'موقع لمفتاح ذكاء اصطناعي', link: 'https://auth.openai.com/log-in' },
@@ -106,12 +116,11 @@ export const CATEGORIES: Category[] = [
   {
     id: 'general',
     name: 'عام',
-    // FIX: Replaced JSX with React.createElement to be valid in a .ts file.
     icon: React.createElement(GeneralIcon),
     tools: [
       { name: 'MagicSchool AI', description: 'ابط برنامج أدوات المعلمين', link: 'https://app.magicschool.ai/tools' },
       { name: 'Free VPN Planet', description: 'رابط الفي بي إن', link: 'https://play.google.com/store/apps/details?id=com.freevpnplanet' },
-      { name: 'EdCafe AI', description: 'الوستا لتعلم الذكاء الاصطناعي', link: 'https://app.edcafe.ai/chatbots/68b18cbe568e6c826514462c' },
+      { name: 'EdCafe AI', description: 'الوستا لتعلم الذكاء الاصطناعي', link: 'https://app.edcafe.ai/' },
       { name: 'Miro', description: 'موقع للمعلم كالسبورة الذكية وخرائط ذهنية', link: 'https://miro.com/ar/' },
       { name: 'Dia Browser', description: 'متصفح يعمل بالذكاء الاصطناعي بديل لجوجل كروم', link: 'https://www.diabrowser.com/' },
       { name: 'Yupp.ai', description: 'برنامج قوي يشغل جميع الأدوات المدفوعة مجانا', link: 'https://yupp.ai/' },
@@ -121,4 +130,271 @@ export const CATEGORIES: Category[] = [
       { name: 'Enhancer for YouTube™', description: 'إضافة لقوقل كروم تعمل على التحكم باليوتيوب', link: 'https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle' },
     ],
   },
+];
+
+export const CATEGORIES_STAGE_2: Category[] = [
+  {
+    id: 'images', name: 'أدوات الصور', icon: React.createElement(PhotoIcon), tools: [
+      { name: 'Ideogram.ai', description: 'مولد صور احترافية من نص.', link: 'https://ideogram.ai/' },
+      { name: 'Qwen Chat', description: 'دردشة/نموذج متعدد القدرات (يدعم نصوص وصور).', link: 'https://chat.qwen.ai/' },
+      { name: 'Designify', description: 'تفريغ خلفيات وبراويز أوتوماتيكي.', link: 'https://www.designify.com/' },
+      { name: 'Remove.bg', description: 'إزالة الخلفيات بسرعة من الصور.', link: 'https://www.remove.bg/' },
+      { name: 'PhotoRoom', description: 'تفريغ وتصميم صور المنتج.', link: 'https://www.photoroom.com/' },
+      { name: 'Canva', description: 'مصمم صور وقوالب + أدوات تحرير بسيطة بالذكاء.', link: 'https://www.canva.com/' },
+      { name: 'Midjourney', description: 'مولد صور عبر الذكاء الاصطناعي (مجتمعي/ديسكورد).', link: 'https://www.midjourney.com/' },
+      { name: 'DALL·E (OpenAI)', description: 'تحويل النص إلى صورة من OpenAI.', link: 'https://openai.com/dall-e-3' },
+      { name: 'Stable Diffusion (DreamStudio)', description: 'مولد صور مفتوح وقابل للتخصيص.', link: 'https://dreamstudio.ai/' },
+      { name: 'Adobe Firefly', description: 'أدوات توليد صور/تعديلات مدمجة في منتجات Adobe.', link: 'https://www.adobe.com/sensei/generative-ai/firefly.html' },
+      { name: 'Clipdrop', description: 'إزالة خلفيات، تحسينات صور، وميزات AR.', link: 'https://clipdrop.co/' },
+      { name: 'Picsart', description: 'محرر صور + أدوات AI لتبديل الملابس والتأثيرات.', link: 'https://picsart.com/' },
+      { name: 'FaceTune', description: 'تحسينات بورتريه وواجهات سهلة.', link: 'https://www.facetune.com/' },
+      { name: 'Artbreeder', description: 'مزج صور / توليد وجوه ومشاهد.', link: 'https://www.artbreeder.com/' },
+      { name: 'Let\'s Enhance', description: 'تحسين دقة/تنقية الصور (upscaling).', link: 'https://letsenhance.io/' },
+      { name: 'Upscale.media', description: 'تكبير وتحسين الصور عبر AI.', link: 'https://www.upscale.media/' },
+      { name: 'DeepArt.io', description: 'تحويل الصور إلى أنماط فنية.', link: 'https://deepart.io/' },
+      { name: 'ZMO.ai', description: 'أدوات أزياء/تبديل ملابس افتراضية.', link: 'https://www.zmo.ai/' },
+      { name: 'Photokit', description: 'أدوات تحرير وتحسين صور المنتج.', link: 'https://photokit.com/' },
+      { name: 'Runway (Image)', description: 'أدوات تحرير صور وفيديو مع مزايا AI متقدمة.', link: 'https://runwayml.com/' },
+    ]
+  },
+  {
+    id: 'video', name: 'أدوات الفيديو', icon: React.createElement(VideoIcon), tools: [
+      { name: 'MagicLight.ai', description: 'تحويل نص إلى فيديو طويل مع شخصيات.', link: 'https://magiclight.ai/' },
+      { name: 'Renderforest', description: 'إنشاء فيديوهات وقوالب جاهزة.', link: 'https://www.renderforest.com/' },
+      { name: 'Google Research Labs', description: 'صفحات مختبرات Google للمشاريع التجريبية.', link: 'https://research.google/' },
+      { name: 'LemonSlice Studio', description: 'مطابقة شفايف/تحريك صور مع دعم صوتيات.', link: 'https://lemonslice.com/studio' },
+      { name: 'CapCut', description: 'محرر فيديو + قوالب + ميزات AI.', link: 'https://www.capcut.com/' },
+      { name: 'Fliki', description: 'تحويل نص إلى فيديو مع أصوات AI.', link: 'https://fliki.ai/' },
+      { name: 'EaseMate', description: 'مولد قصص متعدد الوسائط.', link: 'https://www.easemate.ai/ai-story-generator' },
+      { name: 'Pictory', description: 'إنشاء فيديو من نصوص ومقاطع قصيرة تلقائياً.', link: 'https://pictory.ai/' },
+      { name: 'Colossyan', description: 'إنشاء شخصيات رقمية لقراءة النصوص (video avatars).', link: 'https://www.colossyan.com/' },
+      { name: '123apps (Video tools)', description: 'أدوات تعديل فيديو عامة.', link: 'https://123apps.com/' },
+      { name: 'DreamFace Tools', description: 'مطابقة شفاه مع نص/صوت.', link: 'https://tools.dreamfaceapp.com/' },
+      { name: 'Runway', description: 'تحرير فيديو، إزالة عناصر، استبدال خلفيات بذكاء.', link: 'https://runwayml.com/' },
+      { name: 'Veed.io', description: 'محرر فيديو عبر الويب مع أدوات AI.', link: 'https://www.veed.io/' },
+      { name: 'Descript', description: 'تحرير الفيديو والصوت مع خاصية Overdub.', link: 'https://www.descript.com/' },
+      { name: 'Synthesia', description: 'إنشاء فيديو مع مقدمين افتراضيين (AI avatars).', link: 'https://www.synthesia.io/' },
+      { name: 'Lumen5', description: 'تحويل المقالات/نصوص إلى فيديوهات تسويقية.', link: 'https://lumen5.com/' },
+      { name: 'InVideo', description: 'محرر فيديو قوالب + AI.', link: 'https://invideo.io/' },
+      { name: 'Movio', description: 'شخصيات فيديو رقمية لقراءة النصوص.', link: 'https://www.movio.la/' },
+      { name: 'Aiva', description: 'تحرير تلقائي للمشاهد وتسريع إنتاج الفيديو.', link: 'https://www.aiva.ai/' },
+      { name: 'Filmora (Wondershare)', description: 'برنامج تحرير فيديو مع ميزات AI.', link: 'https://filmora.wondershare.com/' },
+    ]
+  },
+  {
+    id: 'audio', name: 'أدوات الصوت', icon: React.createElement(AudioIcon), tools: [
+      { name: 'Google AI Studio', description: 'توليد صوت/نماذج صوتية من Google (تجريبي).', link: 'https://aistudio.google.com/' },
+      { name: 'NotebookLM (Google)', description: 'تفريغ صوتي وتحليل المحاضرات.', link: 'https://notebooklm.google.com/' },
+      { name: 'ElevenLabs', description: 'توليد أصوات واقعية (Speech-to-speech & text-to-speech).', link: 'https://elevenlabs.io/' },
+      { name: 'Murf.ai', description: 'تحويل النص إلى صوت وخلق أصوات معبرة.', link: 'https://murf.ai/' },
+      { name: 'Play.ht', description: 'TTS ومحركات صوتية متعددة.', link: 'https://play.ht/' },
+      { name: 'Descript (Overdub)', description: 'إنشاء صوت مزيف آمن وتحرير صوتي.', link: 'https://www.descript.com/' },
+      { name: 'Resemble.ai', description: 'توليد أصوات ونسخ صوت.', link: 'https://www.resemble.ai/' },
+      { name: 'Voicemaker.in', description: 'مولد TTS بخيارات متعددة.', link: 'https://voicemaker.in/' },
+      { name: 'Speechify', description: 'قراءة النصوص صوتياً.', link: 'https://speechify.com/' },
+      { name: 'Rev.ai / Rev.com', description: 'تحويل كلام إلى نص + خدمات تفريغ بشرية.', link: 'https://www.rev.ai/' },
+      { name: 'Sonix.ai', description: 'تفريغ صوتي آلي وتحرير.', link: 'https://sonix.ai/' },
+      { name: 'Trint', description: 'تفريغ وتحرير وتحويل للنصوص الصوتية.', link: 'https://trint.com/' },
+      { name: 'LALAL.AI', description: 'فصل الصوت عن الموسيقى (vocal remover).', link: 'https://www.lalal.ai/' },
+      { name: 'Voicemod', description: 'مؤثرات وتغيير صوت مباشر.', link: 'https://www.voicemod.net/' },
+      { name: 'Replica Studios', description: 'شخصيات صوتية للألعاب والفيديو.', link: 'https://www.replicastudios.com/' },
+      { name: 'iZotope RX', description: 'إصلاح وتنقية الصوت احترافياً.', link: 'https://www.izotope.com/en/products/rx.html' },
+      { name: 'Auphonic', description: 'معالجة صوت تلقائية لجودة البث.', link: 'https://auphonic.com/' },
+      { name: 'Rytr', description: 'أدوات TTS تكاملية.', link: 'https://rytr.me/' },
+      { name: 'Coqui TTS', description: 'مشروع مفتوح لتوليد الصوت.', link: 'https://coqui.ai/' },
+      { name: 'Speechmatics', description: 'تحويل كلام إلى نص بدقة لغات متعددة.', link: 'https://www.speechmatics.com/' },
+    ]
+  },
+  {
+    id: 'text', name: 'أدوات النصوص', icon: React.createElement(TextIcon), tools: [
+      { name: 'NotebookLM (Google)', description: 'تفريغ وتلخيص ومساعدة للملاحظات.', link: 'https://notebooklm.google.com/' },
+      { name: 'OCR.Space', description: 'تحويل صور/PDF إلى نص (يدعم العربية).', link: 'https://ocr.space/' },
+      { name: 'Perplexity.ai', description: 'بحث مدعوم بالذكاء مع مخرجات منظمة وجداول.', link: 'https://www.perplexity.ai/' },
+      { name: 'PDF24 Tools', description: 'أدوات متكاملة للعمل مع PDF.', link: 'https://tools.pdf24.org/' },
+      { name: 'Google Docs', description: 'تحرير وتفريغ ومحركات نصية.', link: 'https://docs.google.com/' },
+      { name: 'Grammarly', description: 'تصحيح لغوي واقتراحات كتابة (الإنجليزية).', link: 'https://www.grammarly.com/' },
+      { name: 'Quillbot', description: 'إعادة صياغة/تلخيص/تحسين النصوص.', link: 'https://quillbot.com/' },
+      { name: 'Notion AI', description: 'تلخيص وصياغة داخل Notion.', link: 'https://www.notion.so/product/ai' },
+      { name: 'ChatGPT', description: 'قدرات نصية واسعة ومتعددة.', link: 'https://chat.openai.com/' },
+      { name: 'Claude (Anthropic)', description: 'مساعد نصي طويل المدى.', link: 'https://claude.ai/' },
+      { name: 'Jasper.ai', description: 'كتابة تسويقية ومحتوى.', link: 'https://www.jasper.ai/' },
+      { name: 'Copy.ai', description: 'توليد نسخ تسويقية ومحتوى.', link: 'https://www.copy.ai/' },
+      { name: 'SMMRY', description: 'أدوات سريعة للتلخيص.', link: 'https://smmry.com/' },
+      { name: 'Scribbr', description: 'تدقيق أكاديمي (اقتباس/أصالة).', link: 'https://www.scribbr.com/' },
+      { name: 'Hypothesis', description: 'تعليقات وتلخيصات للمحتوى التعليمي.', link: 'https://web.hypothes.is/' },
+      { name: 'Hemingway Editor', description: 'تبسيط ووضوح النص (إنجليزي).', link: 'https://hemingwayapp.com/' },
+      { name: 'Kami', description: 'تعليق وتحرير PDF.', link: 'https://www.kamiapp.com/' },
+      { name: 'Sumnotes', description: 'استخلاص الملاحظات من PDF.', link: 'https://www.sumnotes.net/' },
+      { name: 'GeneratePrompt.ai', description: 'تحسين وإنشاء برومبتات للنماذج.', link: 'https://www.generateprompt.ai/' },
+      { name: 'Zotero', description: 'أدوات إدارة المراجع والبحوث.', link: 'https://www.zotero.org/' },
+    ]
+  },
+  {
+    id: 'stories', name: 'أدوات القصص', icon: React.createElement(StoryIcon), tools: [
+      { name: 'EaseMate', description: 'مولد قصص بدون تسجيل.', link: 'https://www.easemate.ai/ai-story-generator' },
+      { name: 'Toolsaday', description: 'مولد قصصي سريع.', link: 'https://toolsaday.com/writing/story-generator' },
+      { name: 'OnceUponABot', description: 'توليد قصص وتسجيل صوتي.', link: 'https://onceuponabot.com/' },
+      { name: 'NovelAI', description: 'توليد نصوص وقصص طويلة مع تحكم أنماط.', link: 'https://novelai.net/' },
+      { name: 'AI Dungeon', description: 'ألعاب سرد تفاعلية (قصص تفاعلية).', link: 'https://aidungeon.io/' },
+      { name: 'Plotagon', description: 'تحويل نص لسيناريو متحرك.', link: 'https://plotagon.com/' },
+      { name: 'Storyboard That', description: 'إنشاء لوحات قصصية/قصة مصورة.', link: 'https://www.storyboardthat.com/' },
+      { name: 'Pixton', description: 'إنشاء قصص مصورة وتعليمية.', link: 'https://www.pixton.com/' },
+      { name: 'Canva Comic Templates', description: 'قوالب قصص مصورة.', link: 'https://www.canva.com/create/comic-strips/' },
+      { name: 'MakeBeliefsComix', description: 'مواقع تعليمية للقصص المصورة.', link: 'https://www.makebeliefscomix.com/' },
+      { name: 'Plot Factory', description: 'إدارة والحفاظ على حبكات القصص.', link: 'https://plotfactory.com/' },
+      { name: 'Scrivener', description: 'كتابة روايات وتنظيم.', link: 'https://www.literatureandlatte.com/scrivener/overview' },
+      { name: 'Reedsy Book Editor', description: 'مساعد تأليف ونشر.', link: 'https://reedsy.com/write-a-book' },
+      { name: 'Pictory for Story', description: 'تحويل نصوص لقصص فيديو.', link: 'https://pictory.ai/' },
+      { name: 'Storyboarder', description: 'أداة عمل ستوري بورد مجانية.', link: 'https://wonderunit.com/storyboarder/' },
+      { name: 'Comixify', description: 'تحويل مشاهد لفريمات قصصية.', link: '#' },
+      { name: 'Midjourney for Comics', description: 'توليد صور للقصص المصورة.', link: 'https://www.midjourney.com/' },
+      { name: 'MakeGirlsMoe', description: 'إنشاء شخصيات لقصص مصورة.', link: 'https://make.girls.moe/' },
+      { name: 'Clip Studio Paint', description: 'رسم القصص المصورة باحتراف.', link: 'https://www.clipstudio.net/en/' },
+      { name: 'Toondoo', description: 'أدوات رقمية لتخطيط القصص المصورة في التعليم.', link: 'http://www.toondoo.com/' },
+    ]
+  },
+  {
+    id: 'coding', name: 'أدوات البرمجة', icon: React.createElement(CodeIcon), tools: [
+      { name: 'GitHub Copilot', description: 'مساعد كتابة الشيفرة البرمجية.', link: 'https://github.com/features/copilot' },
+      { name: 'OpenAI Codex', description: 'توليد أكواد وشرحها.', link: 'https://openai.com/blog/openai-codex' },
+      { name: 'Tabnine', description: 'إكمال شيفرة عبر AI.', link: 'https://www.tabnine.com/' },
+      { name: 'Amazon CodeWhisperer', description: 'مساعد كتابة أكواد من أمازون.', link: 'https://aws.amazon.com/codewhisperer/' },
+      { name: 'Replit Ghostwriter', description: 'مساعد برمجي مدمج في Replit.', link: 'https://replit.com/ghostwriter' },
+      { name: 'Sourcegraph Cody', description: 'مساعد بحث وكتابة كود داخل المستودعات.', link: 'https://about.sourcegraph.com/cody' },
+      { name: 'Codeium', description: 'إكمال شيفرة مجاني/محدود.', link: 'https://codeium.com/' },
+      { name: 'Kite (historical)', description: 'إكمال شيفرة (مذكور للتاريخ والانتشار سابقًا).', link: '#' },
+      { name: 'Sourcery', description: 'تحسين/تنظيف شيفرة Python.', link: 'https://sourcery.ai/' },
+      { name: 'BigCode projects', description: 'مشاريع مجتمعية لنماذج كود مفتوحة.', link: 'https://www.bigcode-project.org/' },
+      { name: 'Codiga', description: 'تحليل أمنية الشيفرة واقتراحات.', link: 'https://www.codiga.io/' },
+      { name: 'DeepCode (Snyk)', description: 'تحليلات ذكية للشيفرة.', link: 'https://snyk.io/product/deepcode-ai/' },
+      { name: 'Jedi', description: 'أدوات إكمال محلية (لغات متعددة).', link: 'https://jedi.readthedocs.io/en/latest/' },
+      { name: 'Ponicode', description: 'توليد اختبارات وحدات (unit tests).', link: 'https://www.ponicode.com/' },
+      { name: 'MutableAI', description: 'أدوات تحسين الأداء البرمجي عبر AI.', link: 'https://mutable.ai/' },
+      { name: 'IntelliCode (Visual Studio)', description: 'إكمال ذكي للشيفرة.', link: 'https://visualstudio.microsoft.com/services/intellicode/' },
+      { name: 'OpenAI API', description: 'تطوير أدوات مولدة للشيفرة.', link: 'https://openai.com/api/' },
+      { name: 'CodeScene', description: 'تحليلات جودة الشيفرة.', link: 'https://codescene.com/' },
+      { name: 'Diffblue Cover', description: 'توليد اختبارات تلقائية.', link: 'https://www.diffblue.com/' },
+      { name: 'Merlin (VS Code)', description: 'امتدادات ذكاء لمحررات الكود.', link: 'https://marketplace.visualstudio.com/items?itemName=merlin.merlin' },
+    ]
+  },
+  {
+    id: 'agents', name: 'وكلاء AI', icon: React.createElement(AgentIcon), tools: [
+      { name: 'Auto-GPT', description: 'وكيل ذاتي التشغيل على غرار تجربة Auto-GPT.', link: 'https://github.com/Significant-Gravitas/Auto-GPT' },
+      { name: 'AgentGPT', description: 'واجهة لتشغيل وكلاء مهيئين لأداء مهام.', link: 'https://agentgpt.reworkd.ai/' },
+      { name: 'BabyAGI', description: 'تكوين مهام وكلاء متسلسلة.', link: 'https://github.com/yoheinakajima/babyagi' },
+      { name: 'Perplexity Copilot', description: 'ميزات شبيهة بالوكيل.', link: 'https://www.perplexity.ai/' },
+      { name: 'Hugging Face Agents', description: 'بناء ونشر وكلاء ونماذج.', link: 'https://huggingface.co/docs/transformers/main/en/custom_tools' },
+      { name: 'LangChain', description: 'إطار لبناء وكلاء وسلاسل LLM.', link: 'https://www.langchain.com/' },
+      { name: 'Agentic.ai', description: 'منصات تجارية لبناء وكلاء.', link: 'https://www.agentic.ai/' },
+      { name: 'Microsoft Power Automate', description: 'بناء وكلاء/مهام متكاملة في بيئة Microsoft.', link: 'https://powerautomate.microsoft.com/' },
+      { name: 'Bardeen.ai', description: 'أتمتة ويب مع وكلاء LLM.', link: 'https://www.bardeen.ai/' },
+      { name: 'Zapier GPT integrations', description: 'ربط وكلاء ومهام آلية.', link: 'https://zapier.com/apps/openai/integrations' },
+      { name: 'Nomic AI', description: 'منصات أبحاث وبروتوتايب.', link: 'https://home.nomic.ai/' },
+      { name: 'Taskade AI agents', description: 'مهام تعاونية مدعومة بـAI.', link: 'https://www.taskade.com/ai' },
+      { name: 'Builder.ai', description: 'أتمتة سير العمل باستخدام وكلاء.', link: 'https://www.builder.ai/' },
+      { name: 'RAG frameworks', description: 'أطر عمل لتوليد المعلومات المسترجعة للوكلاء.', link: '#' },
+      { name: 'AutoGen (Microsoft)', description: 'أطر لتنسيق وكلاء.', link: 'https://github.com/microsoft/autogen' },
+      { name: 'Poe (by Quora)', description: 'منصة حوار متعددة الوكلاء.', link: 'https://poe.com/' },
+      { name: 'UbiOps', description: 'تكامل وكلاء.', link: 'https://ubiops.com/' },
+      { name: 'FlowiseAI', description: 'بناء وكلاء بصريًا.', link: 'https://flowiseai.com/' },
+      { name: 'Reflex.AI', description: 'وكلاء مهيأين لمهام تلقائية.', link: 'https://www.reflex.ai/' },
+      { name: 'TeamAI / Magai', description: 'تجمع نماذج وتسمح بصناعة وكلاء.', link: 'https://teamai.com/' },
+    ]
+  },
+  {
+    id: 'content-creation', name: 'صناعة المحتوى', icon: React.createElement(PresentationIcon), tools: [
+      { name: 'CapCut', description: 'مونتاج سريع وقوالب.', link: 'https://www.capcut.com/' },
+      { name: 'Adobe Premiere Pro', description: 'مونتاج احترافي مع أدوات AI.', link: 'https://www.adobe.com/products/premiere.html' },
+      { name: 'Final Cut Pro', description: 'مونتاج احترافي على macOS.', link: 'https://www.apple.com/final-cut-pro/' },
+      { name: 'DaVinci Resolve', description: 'تصحيح ألوان ومونتاج متقدّم.', link: 'https://www.blackmagicdesign.com/products/davinciresolve' },
+      { name: 'Runway', description: 'تحرير بمكتبات AI.', link: 'https://runwayml.com/' },
+      { name: 'Descript', description: 'تحرير صوت وفيديو نصياً.', link: 'https://www.descript.com/' },
+      { name: 'Veed.io', description: 'منصة للمحتوى الاجتماعي ومونتاج سهل.', link: 'https://www.veed.io/' },
+      { name: 'Canva (Video Suite)', description: 'تصميم ومونتاج مبسط للمنشورات والفيديوهات.', link: 'https://www.canva.com/video-editor/' },
+      { name: 'InVideo', description: 'قوالب فيديو تسويقية وذكاء لإنشاء المشاهد.', link: 'https://invideo.io/' },
+      { name: 'Lumen5', description: 'تحويل المقالات إلى فيديو محتوى.', link: 'https://lumen5.com/' },
+      { name: 'Filmora', description: 'محرر فيديو اجتماعي/تعليمي.', link: 'https://filmora.wondershare.com/' },
+      { name: 'Animoto', description: 'عمل فيديوهات تسويقية وبسيطة.', link: 'https://animoto.com/' },
+      { name: 'Hootsuite', description: 'أدوات لنشر وجدولة المحتوى.', link: 'https://www.hootsuite.com/' },
+      { name: 'Auphonic', description: 'تحسين المسارات الصوتية لبودكاست.', link: 'https://auphonic.com/' },
+      { name: 'Spotify for Podcasters', description: 'أدوات إنشاء ونشر البودكاست.', link: 'https://podcasters.spotify.com/' },
+      { name: 'Headliner.app', description: 'تحويل صوت بودكاست إلى فيديو للمنصات.', link: 'https://www.headliner.app/' },
+      { name: 'Visme', description: 'صناعة محتوى مرئي وإنفوجرافيكس.', link: 'https://www.visme.co/' },
+      { name: 'Epidemic Sound', description: 'مكتبات صوتية للمحتوى (مرخّصة).', link: 'https://www.epidemicsound.com/' },
+      { name: 'Kapwing', description: 'محرر فيديو على الويب بالذكاء.', link: 'https://www.kapwing.com/' },
+      { name: 'Motionbox', description: 'أدوات مونتاج سريعة للمنشورات.', link: 'https://motionbox.io/' },
+    ]
+  },
+  {
+    id: 'chatbots', name: 'المحادثة', icon: React.createElement(ChatIcon), tools: [
+      { name: 'ChatGPT (OpenAI)', description: 'دردشة نصية قوية ومتعددة الاستخدامات.', link: 'https://chatgpt.com/' },
+      { name: 'Google Gemini', description: 'مساعد دردشة من Google.', link: 'https://gemini.google.com/' },
+      { name: 'Claude (Anthropic)', description: 'مساعد نصي آمن وطويل الامد.', link: 'https://claude.ai/' },
+      { name: 'Perplexity.ai', description: 'محرك إجابات مدعوم بالذكاء.', link: 'https://www.perplexity.ai/' },
+      { name: 'Character.AI', description: 'محادثة مع شخصيات مُصممة.', link: 'https://character.ai/' },
+      { name: 'Poe (Quora)', description: 'منصة للحوار مع موديلات متعددة.', link: 'https://poe.com/' },
+      { name: 'YouChat / You.com', description: 'محرك بحث ودردشة.', link: 'https://you.com/' },
+      { name: 'Replika', description: 'مساعد/صديق افتراضي.', link: 'https://replika.com/' },
+      { name: 'Rasa', description: 'إطار بناء دردشات مخصصة.', link: 'https://rasa.com/' },
+      { name: 'Botpress', description: 'منصة مفتوحة لبناء روبوتات دردشة.', link: 'https://botpress.com/' },
+      { name: 'Tidio', description: 'دردشة حية وأتمتة للمتاجر.', link: 'https://www.tidio.com/' },
+      { name: 'Intercom', description: 'دعم العملاء عبر دردشة ذكية.', link: 'https://www.intercom.com/' },
+      { name: 'Drift', description: 'دردشة تسويقية ومبيعات.', link: 'https://www.drift.com/' },
+      { name: 'Landbot', description: 'إنشاء chatbots بصريًا.', link: 'https://landbot.io/' },
+      { name: 'SnatchBot', description: 'منصة دردشة متعددة القنوات.', link: 'https://snatchbot.me/' },
+      { name: 'Wit.ai (Facebook)', description: 'تحويل اللغة إلى أوامر لبناء دردشات.', link: 'https://wit.ai/' },
+      { name: 'Dialogflow (Google)', description: 'منصة لبناء محادثات ذكية.', link: 'https://cloud.google.com/dialogflow' },
+      { name: 'Azure Bot Service', description: 'بنية دردشة على السحابة.', link: 'https://azure.microsoft.com/en-us/products/bot-services' },
+      { name: 'ManyChat', description: 'بوتات للـ Messenger/WhatsApp.', link: 'https://manychat.com/' },
+      { name: 'Flow XO', description: 'منصات إنشاء واجهات دردشة متكاملة.', link: 'https://flowxo.com/' },
+    ]
+  },
+  {
+    id: 'data-analysis', name: 'تحليل البيانات والعروض', icon: React.createElement(AnalysisIcon), tools: [
+      { name: 'Manus.im', description: 'روابط لمشاركة التحليلات.', link: 'https://manus.im/' },
+      { name: 'Ithy.com', description: 'منصات تحليل بيانات.', link: 'https://ithy.com/' },
+      { name: 'Gamma.app', description: 'عروض تقديمية ذكية بالذكاء.', link: 'https://gamma.app/' },
+      { name: 'Tableau', description: 'تحليل بصري للبيانات.', link: 'https://www.tableau.com/' },
+      { name: 'Power BI (Microsoft)', description: 'تقارير وتحليلات تفاعلية.', link: 'https://powerbi.microsoft.com/' },
+      { name: 'Looker Studio', description: 'تقارير سحابية.', link: 'https://lookerstudio.google.com/' },
+      { name: 'Zoho Analytics', description: 'BI وتقارير.', link: 'https://www.zoho.com/analytics/' },
+      { name: 'Metabase', description: 'حلول تحليلات مفتوحة.', link: 'https://www.metabase.com/' },
+      { name: 'Qlik', description: 'لوحة تحليلات متقدمة.', link: 'https://www.qlik.com/' },
+      { name: 'Klipfolio', description: 'لوحات بيانات للحظي.', link: 'https://www.klipfolio.com/' },
+      { name: 'Mode Analytics', description: 'تحليلات ومشاركة نتائج.', link: 'https://mode.com/' },
+      { name: 'Looker (Google Cloud)', description: 'منصة تحليلات متقدمة.', link: 'https://looker.google.com/' },
+      { name: 'Domo', description: 'منصة لوحات وتحليلات سحابية.', link: 'https://www.domo.com/' },
+      { name: 'Plotly Dash', description: 'بناء تطبيقات تحليلات تفاعلية.', link: 'https://plotly.com/dash/' },
+      { name: 'Observable HQ', description: 'تحليلات تفاعلية مرئية.', link: 'https://observablehq.com/' },
+      { name: 'Jupyter', description: 'أدوات برمجية لتحليل البيانات.', link: 'https://jupyter.org/' },
+      { name: 'BigQuery (Google)', description: 'تحليلات بيانات كبيرة.', link: 'https://cloud.google.com/bigquery' },
+      { name: 'Snowflake', description: 'منصة بيانات سحابية.', link: 'https://www.snowflake.com/' },
+      { name: 'Anaconda', description: 'بيئة عمل تحليلية.', link: 'https://www.anaconda.com/' },
+      { name: 'Excel Power Tools', description: 'أدوات تحليل كلاسيكية لكنها قوية.', link: 'https://www.microsoft.com/en-us/microsoft-365/excel' },
+    ]
+  },
+  {
+    id: 'general-teacher-addons', name: 'أدوات عامة ومساعدة', icon: React.createElement(GeneralIcon), tools: [
+      { name: 'Magicschool tools', description: 'مجموعة أدوات تعليمية.', link: 'https://www.magicschool.ai/' },
+      { name: 'Miro', description: 'سبورة ذكية وخرائط ذهنية.', link: 'https://miro.com/' },
+      { name: 'Yupp.ai', description: 'منصة تجمع أدوات / تجارب.', link: 'https://yupp.ai/' },
+      { name: 'Futurepedia', description: 'فهرس ضخم لأدوات الذكاء.', link: 'https://www.futurepedia.io/' },
+      { name: 'FutureTools', description: 'دليل أدوات AI.', link: 'https://www.futuretools.io/' },
+      { name: 'Vercel', description: 'استضافة تطبيقات الويب.', link: 'https://vercel.com/' },
+      { name: 'Temp-Mail', description: 'بريد مؤقت.', link: 'https://temp-mail.org/' },
+      { name: 'DisMail', description: 'مثال لإيميل مؤقت على iOS.', link: 'https://apps.apple.com/us/app/dismail-temporary-email/id1593539655' },
+      { name: 'Enhancer for YouTube', description: 'تحكم وتحسين اليوتيوب.', link: 'https://chromewebstore.google.com/detail/enhancer-for-youtube/ponfpcnoihfmfllpaingbgckeeldkhle' },
+      { name: 'Dia Browser', description: 'متصفح AI (بديل).', link: 'https://www.diabrowser.com/' },
+      { name: 'GeneratePrompt.ai', description: 'تحسين برومبتات ونماذج.', link: 'https://www.generateprompt.ai/' },
+      { name: 'Google AI Studio', description: 'تجارب وأدوات مساعدة.', link: 'https://aistudio.google.com/' },
+      { name: 'OpenAI API Keys', description: 'إدارة مفاتيح API.', link: 'https://platform.openai.com/account/api-keys' },
+      { name: 'AppsGeyser', description: 'تحويل صفحات ويب إلى تطبيقات.', link: 'https://appsgeyser.com/' },
+      { name: 'Google Colab', description: 'بيئة تشغيل نماذج وكتابة.', link: 'https://colab.research.google.com/' },
+      { name: 'Hugging Face', description: 'مستودع نماذج ومساحات للتجريب.', link: 'https://huggingface.co/' },
+      { name: 'Notion', description: 'إدارة محتوى وتوثيق.', link: 'https://www.notion.so/' },
+      { name: 'Slack AI integrations', description: 'تكاملات بالشركات.', link: 'https://slack.com/features/ai' },
+      { name: 'Zoom AI Companion', description: 'مساعدة في الاجتماعات وتفريغها.', link: 'https://zoom.us/ai-companion' },
+      { name: 'Pocket', description: 'حفظ ومراجعة المقالات / المحتوى.', link: 'https://getpocket.com/' },
+    ]
+  }
 ];
